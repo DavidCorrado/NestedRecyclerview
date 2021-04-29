@@ -48,7 +48,7 @@ class InnerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bindViews(data: Int)
     }
 
-    private inner class CellViewHolder(view: View) : RecyclerView.ViewHolder(view), UpdateViewHolder, View.OnClickListener, OnLongClickListener {
+    private inner class CellViewHolder(view: View) : RecyclerView.ViewHolder(view), UpdateViewHolder, View.OnClickListener {
         private var num = 0
 
         override fun bindViews(data: Int) {
@@ -57,16 +57,10 @@ class InnerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             textView.text = data.toString()
             itemView.setOnClickListener(this)
-            itemView.setOnLongClickListener(this)
         }
 
         override fun onClick(v: View) {
             mItemClickListener?.onItemClick(v, num)
-        }
-
-        override fun onLongClick(v: View): Boolean {
-            mItemClickListener?.onItemLongClick(v, num)
-            return true
         }
     }
 }
